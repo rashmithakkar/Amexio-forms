@@ -1,0 +1,60 @@
+<amexio-form [header]="true" [formGroup]="employeeForm">
+  <amexio-form-header>
+    Registration Form : Reactive
+  </amexio-form-header>
+  <amexio-form-body>
+    <amexio-row>
+      <amexio-column size="6">
+        <amexio-text-input formControlName="FirstName" [(ngModel)]="employeeRegistration.firstName" [field-label]="'First Name'"
+          [allow-blank]="true" [error-msg]="'Please enter valid First Name'" [enable-popover]="true" [place-holder]="'Please enter first name'"
+          [min-length]="2" [icon-feedback]="false" [min-error-msg]="'Minimum 2 char allowed'" [max-error-msg]="'Maximum 20 char allowed'"
+          [max-length]="20">
+        </amexio-text-input>
+      </amexio-column>
+      <amexio-column size="6">
+        <amexio-text-input formControlName="LastName" [(ngModel)]="employeeRegistration.lastName" [field-label]="'Last Name'" [place-holder]="'Please enter last name'"
+          [allow-blank]="true" [error-msg]="'errorMsg'" [enable-popover]="true" [min-length]="2" [min-error-msg]="'Minimum 2 char allowed'"
+          [max-error-msg]="'Maximum 20 char allowed'" [max-length]="20">
+          [icon-feedback]="true" >
+        </amexio-text-input>
+      </amexio-column>
+    </amexio-row>
+    <amexio-row>
+      <amexio-column size="6">
+        <amexio-email-input formControlName="Email" [(ngModel)]="employeeRegistration.email" [field-label]="'Email Id'" [place-holder]="'Please enter Email Id'"
+          [allow-blank]="false" [error-msg]="'Please Enter Email Id'" [enable-popover]="true" [icon-feedback]="true">
+        </amexio-email-input>
+      </amexio-column>
+      <amexio-column size="6">
+        <amexio-number-input formControlName="Age" [(ngModel)]="employeeRegistration.age" [enable-popover]="true" [field-label]="'Age'"
+          [place-holder]="'Enter age'" [error-msg]="'Please enter age'" [min-value]="18" [min-error-msg]="'age can not be less than 18'"
+          [max-value]="100" [max-error-msg]="'age can not be greater than 100'" [icon-feedback]="true">
+        </amexio-number-input>
+      </amexio-column>
+    </amexio-row>
+    <amexio-row>
+      <amexio-column size="6">
+        <amexio-date-time-picker formControlName="DateOfBirth" [(ngModel)]="employeeRegistration.dateOfBirth" [field-label]="'Date Of Birth'"
+          [time-picker]="false" [date-picker]="true" [required]="true">
+        </amexio-date-time-picker>
+
+      </amexio-column>
+      <amexio-column size="6">
+        <amexio-radio-group formControlName="Gender" [(ngModel)]="employeeRegistration.gender" [field-label]="'Gender'" [horizontal]="true"
+          [display-field]="'genderName'" [value-field]="'genderId'" [data]="radioGroupData">
+        </amexio-radio-group>
+      </amexio-column>   
+    </amexio-row>
+    <br>
+       <amexio-checkbox formControlName="Agree" [(ngModel)]="employeeRegistration.agree" [field-label]="'Agree'">
+      </amexio-checkbox>
+  </amexio-form-body>
+  <amexio-form-action>
+    <amexio-button [label]="'Save'" 
+                   [disabled]="!employeeForm.valid" 
+                   [type]="'green'" 
+                   [tooltip]="'Save Form'">
+    </amexio-button>
+  </amexio-form-action>
+
+</amexio-form>
